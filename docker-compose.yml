@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql/mysql-server
+    restart: always
+    environment:
+      - MYSQL_DATABASE:'starwars'
+      - MYSQL_DATABASE_USER:'test'
+      - MYSQL_DATABASE_PASSWORD:'test'
+      - MYSQL_ROOT_PASSWORD:'roottest'
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    # expose:
+    #   - '3306'
+
+volumes:
+  mysql:
