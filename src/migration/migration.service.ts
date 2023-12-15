@@ -38,6 +38,7 @@ export class MigrationService {
           .then((res) => {
             return res;
           });
+
         const { results, next } = resultsObject;
 
         await this.saveToDBWithoutRelations(results, entity);

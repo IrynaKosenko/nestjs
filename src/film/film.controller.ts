@@ -22,7 +22,6 @@ import { EntitiesInterceptors, EntityInterceptors } from 'src/common/interceptor
 import { NotNullUpdatedObjectException } from 'src/exceptions/NotNullUpdatedObject.exception';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'src/common/constants';
-//import JwtAuthGuard from 'src/auth/guards/jwt-auth.guard';
 import { RoleGuard } from 'src/auth/guards/role.guard';
 
 @Controller('films')
