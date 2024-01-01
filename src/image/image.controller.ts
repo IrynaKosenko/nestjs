@@ -12,10 +12,10 @@ import {
 import { ImageService } from './image.service';
 import { ApiBody, ApiTags, ApiConsumes, ApiBearerAuth } from '@nestjs/swagger';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { EntityInterceptors } from 'src/common/interceptors';
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { RoleGuard } from 'src/auth/guards/role.guard';
-import { Role } from 'src/common/constants';
+import { EntityInterceptors } from '../common/interceptors';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { RoleGuard } from '../auth/guards/role.guard';
+import { Role } from '../common/constants';
 
 @Controller('image')
 @ApiTags('image')

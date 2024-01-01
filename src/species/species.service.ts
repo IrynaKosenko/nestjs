@@ -1,16 +1,16 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateSpeciesDto } from './dto/create-species.dto';
 import { UpdateSpeciesDto } from './dto/update-species.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Film } from 'src/film/entities/film.entity';
-import { Person } from 'src/people/entities/person.entity';
-import { Planet } from 'src/planet/entities/planet.entity';
+import { Film } from '../film/entities/film.entity';
+import { Person } from '../people/entities/person.entity';
+import { Planet } from '../planet/entities/planet.entity';
 import { In, Repository } from 'typeorm';
 import { Species } from './entities/species.entity';
-import { createUrlWithId, getMaxId } from 'src/common/common-functions';
+import { createUrlWithId, getMaxId } from '../common/common-functions';
 import { IPaginationOptions, Pagination, paginate } from 'nestjs-typeorm-paginate';
-import { EntityNotFoundException } from 'src/exceptions/NotFound.exception';
-import { entities } from 'src/common/constants';
+import { EntityNotFoundException } from '../exceptions/NotFound.exception';
+import { entities } from '../common/constants';
 
 @Injectable()
 export class SpeciesService {

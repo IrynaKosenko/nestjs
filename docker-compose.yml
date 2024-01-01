@@ -1,20 +1,118 @@
-version: '3.8'
+version: '3.9'
+networks:
+  starwars-network:
+    driver: bridge
 
 services:
-  db:
-    image: mysql/mysql-server
-    restart: always
-    environment:
-      - MYSQL_DATABASE:'starwars'
-      - MYSQL_DATABASE_USER:'test'
-      - MYSQL_DATABASE_PASSWORD:'test'
-      - MYSQL_ROOT_PASSWORD:'roottest'
-    volumes:
-      - mysql:/var/lib/mysql
+  mysql-db:
+    image: mysql
+    container_name: mysql-db
     ports:
       - '3306:3306'
-    # expose:
-    #   - '3306'
+    environment:
+      MYSQL_DATABASE: ${DATABASE}
+      MYSQL_DATABASE_USER: ${DATABASE_USER}
+      MYSQL_DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+    volumes:
+      - starwars-volume:/var/lib/mysql
+    restart: always
+    networks:
+      - starwars-network
+
+  starwars-app:
+    image: starwars-app
+    container_name: starwars-app
+    build: .
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    networks:
+      - starwars-network
+    environment:
+      MYSQL_DATABASE: ${DATABASE}
+      MYSQL_HOST: ${DATABASE_HOST}
+      MYSQL_PORT: ${DATABASE_PORT}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+
+    depends_on:
+      - mysql-db
+    restart: always
 
 volumes:
-  mysql:
+  starwars-volume:
+#
+#
+#
+# version: "3.9"
+
+# services:
+#   mysql:
+#     image: mysql
+#     container_name: mysql
+#     command: --default-authentication-plugin=mysql_native_password
+#     ports:
+#       - ${MYSQL_PORT}:${MYSQL_PORT}
+#     networks:
+#       - star-wars-network
+#     mem_limit: 512m
+#     mem_reservation: 512m
+#     environment:
+#       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#       MYSQL_USER: ${MYSQL_USERNAME}
+#       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+#       MYSQL_DATABASE: ${MYSQL_DATABASE}
+#     volumes:
+#       - star-wars-data:/var/lib/mysql
+#     restart: always
+
+#   star-wars-app:
+#     image: star-wars-app
+#     container_name: star-wars-app
+#     build: .
+#     ports:
+#       - ${APP_PORT}:${APP_PORT}
+#     networks:
+#       - star-wars-network
+#     environment:
+#       MYSQL_HOST: ${MYSQL_HOST}
+#       MYSQL_PORT: ${MYSQL_PORT}
+#       MYSQL_USER: ${MYSQL_USERNAME}
+#       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+#       MYSQL_DATABASE: ${MYSQL_DATABASE}
+#     depends_on:
+#       - mysql
+#     restart: always
+
+# networks:
+#   star-wars-network:
+#     driver: bridge
+
+# volumes:
+#   star-wars-data:
+#     driver: local
+#
+#
+#
+#
+#
+#   version: "3"
+# services:
+#   database:
+#     image: "postgres:latest"
+#     ports:
+#       - ${POSTGRES_DEFAULT_PORT}:${POSTGRES_DEFAULT_PORT}
+#     environment:
+#       POSTGRES_USER: ${POSTGRES_USER}
+#       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+#       POSTGRES_DB: ${POSTGRES_DEFAULT_DB}
+#     volumes:
+#       - ./pg-data/:/var/lib/postgresql/data/
+#   test_database:
+#     image: "postgres:latest"
+#     ports:
+#       - ${POSTGRES_TEST_PORT}:${POSTGRES_DEFAULT_PORT}
+#     environment:
+#       POSTGRES_USER: ${POSTGRES_USER}
+#       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+#       POSTGRES_DB: ${POSTGRES_TEST_DB}

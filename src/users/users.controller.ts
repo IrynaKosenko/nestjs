@@ -10,11 +10,11 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { EntitiesInterceptors, EntityInterceptors } from 'src/common/interceptors';
+import { EntitiesInterceptors, EntityInterceptors } from '../common/interceptors';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { Role } from 'src/common/constants';
-import { RoleGuard } from 'src/auth/guards/role.guard';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { Role } from '../common/constants';
+import { RoleGuard } from '../auth/guards/role.guard';
 
 @UseGuards(RoleGuard)
 @ApiTags('users')

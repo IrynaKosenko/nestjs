@@ -17,11 +17,11 @@ import { UpdateStarshipDto } from './dto/update-starship.dto';
 import { ApiBearerAuth, ApiOkResponse, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Starship } from './entities/starship.entity';
 import { Pagination } from 'nestjs-typeorm-paginate';
-import { EntityInterceptors, EntitiesInterceptors } from 'src/common/interceptors';
-import { NotNullUpdatedObjectException } from 'src/exceptions/NotNullUpdatedObject.exception';
-import { RoleGuard } from 'src/auth/guards/role.guard';
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { Role } from 'src/common/constants';
+import { EntityInterceptors, EntitiesInterceptors } from '../common/interceptors';
+import { NotNullUpdatedObjectException } from '../exceptions/NotNullUpdatedObject.exception';
+import { RoleGuard } from '../auth/guards/role.guard';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { Role } from '../common/constants';
 
 @Controller('starships')
 @ApiTags('starships')

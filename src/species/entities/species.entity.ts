@@ -1,8 +1,8 @@
-import { AbstractEntity } from 'src/common/abstract.entity';
-import { Film } from 'src/film/entities/film.entity';
-import { Person } from 'src/people/entities/person.entity';
-import { Planet } from 'src/planet/entities/planet.entity';
-import { Image } from 'src/image/entities/image.entity';
+import { AbstractEntity } from '../../common/abstract.entity';
+import { Film } from '../../film/entities/film.entity';
+import { Person } from '../../people/entities/person.entity';
+import { Planet } from '../../planet/entities/planet.entity';
+import { Image } from '../../image/entities/image.entity';
 import { Column, ManyToMany, OneToOne, Entity, JoinColumn, JoinTable, OneToMany } from 'typeorm';
 
 @Entity({ name: 'species' })

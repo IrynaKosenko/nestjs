@@ -6,16 +6,12 @@ import 'reflect-metadata';
 import { ValidationPipe } from '@nestjs/common';
 import { AllExceptionsFilter } from './filters/HttpException.filter';
 import { useContainer } from 'class-validator';
-import * as cookieParser from 'cookie-parser';
+import dataSource from 'database/data-source';
+import { fetchAndFillTablesTestDatabase } from 'test/seedingTestDb';
+import dataSourceTest from 'database/test/data-source-test';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  app.use(cookieParser());
-
-  // for using filters globally
-  const httpAdapter = app.get(HttpAdapterHost);
-  app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
 
   // for swagger
   const config = new DocumentBuilder()
@@ -26,6 +22,10 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+
+  // for using filters globally
+  const httpAdapter = app.get(HttpAdapterHost);
+  app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
 
   // for using in-build pipes globally
   app.useGlobalPipes(
@@ -44,5 +44,14 @@ async function bootstrap() {
   await app.listen(port, () => {
     console.log(`Listening at ${port}`);
   });
+
+  // choose in .env file - testing or development scope
+  // Before running e2e tests, we need to seed the testing database once.
+
+  const scope = configServise.getOrThrow<string>('SCOPE');
+  if (scope === 'testing') {
+    await fetchAndFillTablesTestDatabase();
+  }
 }
+
 bootstrap();

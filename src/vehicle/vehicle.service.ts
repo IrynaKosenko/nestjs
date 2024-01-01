@@ -2,14 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { CreateVehicleDto } from './dto/create-vehicle.dto';
 import { UpdateVehicleDto } from './dto/update-vehicle.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { createUrlWithId, getMaxId } from 'src/common/common-functions';
-import { Film } from 'src/film/entities/film.entity';
-import { Person } from 'src/people/entities/person.entity';
+import { createUrlWithId, getMaxId } from '../common/common-functions';
+import { Film } from '../film/entities/film.entity';
+import { Person } from '../people/entities/person.entity';
 import { Repository, In } from 'typeorm';
 import { Vehicle } from './entities/vehicle.entity';
 import { IPaginationOptions, Pagination, paginate } from 'nestjs-typeorm-paginate';
-import { EntityNotFoundException } from 'src/exceptions/NotFound.exception';
-import { entities } from 'src/common/constants';
+import { EntityNotFoundException } from '../exceptions/NotFound.exception';
+import { entities } from '../common/constants';
 
 @Injectable()
 export class VehicleService {

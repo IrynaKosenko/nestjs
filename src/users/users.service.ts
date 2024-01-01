@@ -3,7 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { EntityNotFoundException } from 'src/exceptions/NotFound.exception';
+import { EntityNotFoundException } from '../exceptions/NotFound.exception';
 import { compare, genSaltSync, hashSync } from 'bcrypt';
 
 @Injectable()

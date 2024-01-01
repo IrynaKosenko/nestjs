@@ -3,23 +3,14 @@ import { VehicleService } from './vehicle.service';
 import { VehicleController } from './vehicle.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Vehicle } from './entities/vehicle.entity';
-import { Film } from 'src/film/entities/film.entity';
-import { Person } from 'src/people/entities/person.entity';
-import { Planet } from 'src/planet/entities/planet.entity';
-import { Starship } from 'src/starship/entities/starship.entity';
-import { Species } from 'src/species/entities/species.entity';
+import { Film } from '../film/entities/film.entity';
+import { Person } from '../people/entities/person.entity';
+import { Planet } from '../planet/entities/planet.entity';
+import { Starship } from '../starship/entities/starship.entity';
+import { Species } from '../species/entities/species.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      Person,
-      Film,
-      Starship,
-      Species,
-      Planet,
-      Vehicle,
-    ]),
-  ],
+  imports: [TypeOrmModule.forFeature([Person, Film, Starship, Species, Planet, Vehicle])],
   controllers: [VehicleController],
   providers: [VehicleService],
 })

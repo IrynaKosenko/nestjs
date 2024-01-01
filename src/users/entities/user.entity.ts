@@ -1,5 +1,5 @@
 import { IsUUID } from 'class-validator';
-import { Role } from 'src/common/constants';
+import { Role } from '../../common/constants';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'users' })

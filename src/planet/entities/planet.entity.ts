@@ -1,7 +1,7 @@
-import { AbstractEntity } from 'src/common/abstract.entity';
-import { Film } from 'src/film/entities/film.entity';
-import { Person } from 'src/people/entities/person.entity';
-import { Image } from 'src/image/entities/image.entity';
+import { AbstractEntity } from '../../common/abstract.entity';
+import { Film } from '../../film/entities/film.entity';
+import { Person } from '../../people/entities/person.entity';
+import { Image } from '../../image/entities/image.entity';
 import { Column, Entity, JoinTable, ManyToMany, OneToMany } from 'typeorm';
 
 @Entity({ name: 'planets' })

@@ -6,17 +6,17 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { In } from 'typeorm';
 import { Person } from './entities/person.entity';
 import { Repository } from 'typeorm';
-import { createUrlWithId, getMaxId } from 'src/common/common-functions';
-import { Planet } from 'src/planet/entities/planet.entity';
-import { Film } from 'src/film/entities/film.entity';
-import { Species } from 'src/species/entities/species.entity';
-import { Starship } from 'src/starship/entities/starship.entity';
-import { Vehicle } from 'src/vehicle/entities/vehicle.entity';
+import { createUrlWithId, getMaxId } from '../common/common-functions';
+import { Planet } from '../planet/entities/planet.entity';
+import { Film } from '../film/entities/film.entity';
+import { Species } from '../species/entities/species.entity';
+import { Starship } from '../starship/entities/starship.entity';
+import { Vehicle } from '../vehicle/entities/vehicle.entity';
 import { IPaginationOptions, Pagination, paginate } from 'nestjs-typeorm-paginate';
 import { S3Client } from '@aws-sdk/client-s3';
-import { EntityNotFoundException } from 'src/exceptions/NotFound.exception';
-import { CreatedObjectException } from 'src/exceptions/CreatedObject.exception';
-import { entities } from 'src/common/constants';
+import { EntityNotFoundException } from '../exceptions/NotFound.exception';
+import { CreatedObjectException } from '../exceptions/CreatedObject.exception';
+import { entities } from '../common/constants';
 
 @Injectable()
 export class PeopleService {

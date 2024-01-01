@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PeopleModule } from './people/people.module';
 import { FilmModule } from './film/film.module';
@@ -8,7 +8,7 @@ import { PlanetModule } from './planet/planet.module';
 import { StarshipModule } from './starship/starship.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { SpeciesModule } from './species/species.module';
-import { dataSourceOptions } from 'database/data-source';
+import { dataSourceOptions } from '../database/data-source';
 import { ImageModule } from './image/image.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';

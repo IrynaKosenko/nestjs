@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, Validate } from 'class-validator';
-import { ValidEmailValidation } from 'src/common/custom-validation/email-valid.validation';
+import { ValidEmailValidation } from '../../common/custom-validation/email-valid.validation';
 
 export class ValidationUserDto {
   @IsNotEmpty()

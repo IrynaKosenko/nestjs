@@ -1,11 +1,11 @@
-import { Film } from 'src/film/entities/film.entity';
-import { Planet } from 'src/planet/entities/planet.entity';
-import { Starship } from 'src/starship/entities/starship.entity';
-import { Species } from 'src/species/entities/species.entity';
-import { Vehicle } from 'src/vehicle/entities/vehicle.entity';
+import { Film } from '../../film/entities/film.entity';
+import { Planet } from '../../planet/entities/planet.entity';
+import { Starship } from '../../starship/entities/starship.entity';
+import { Species } from '../../species/entities/species.entity';
+import { Vehicle } from '../../vehicle/entities/vehicle.entity';
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany } from 'typeorm';
-import { AbstractEntity } from 'src/common/abstract.entity';
-import { Image } from 'src/image/entities/image.entity';
+import { AbstractEntity } from '../../common/abstract.entity';
+import { Image } from '../../image/entities/image.entity';
 
 @Entity({ name: 'people' })
 export class Person extends AbstractEntity<Person> {

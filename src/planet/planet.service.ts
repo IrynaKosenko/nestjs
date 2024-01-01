@@ -2,14 +2,15 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreatePlanetDto } from './dto/create-planet.dto';
 import { UpdatePlanetDto } from './dto/update-planet.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Film } from 'src/film/entities/film.entity';
-import { Person } from 'src/people/entities/person.entity';
+import { Film } from '../film/entities/film.entity';
+import { Person } from '../people/entities/person.entity';
 import { In, Repository } from 'typeorm';
 import { Planet } from './entities/planet.entity';
-import { createUrlWithId, getMaxId } from 'src/common/common-functions';
+import { createUrlWithId, getMaxId } from '../common/common-functions';
 import { IPaginationOptions, Pagination, paginate } from 'nestjs-typeorm-paginate';
-import { EntityNotFoundException } from 'src/exceptions/NotFound.exception';
-import { entities } from 'src/common/constants';
+import { EntityNotFoundException } from '../exceptions/NotFound.exception';
+import { entities } from '../common/constants';
+import { Species } from 'src/species/entities/species.entity';
 
 @Injectable()
 export class PlanetService {
@@ -20,6 +21,8 @@ export class PlanetService {
     private readonly peopleRepository: Repository<Person>,
     @InjectRepository(Planet)
     private readonly planetRepository: Repository<Planet>,
+    @InjectRepository(Species)
+    private readonly speciesRepository: Repository<Species>,
   ) {}
 
   async create(createPlanetDto: CreatePlanetDto) {
@@ -100,12 +103,25 @@ export class PlanetService {
   async remove(id: number) {
     const planet = await this.findOne(id);
     if (!planet) throw new EntityNotFoundException('Planet');
-    const person = await this.peopleRepository.findOne({
+
+    const person = await this.peopleRepository.find({
       where: {
         homeworld: { id: id },
       },
     });
-    if (person) await this.peopleRepository.update(person.id, { homeworld: null });
+    if (person) {
+      person.map((personElement) => {
+        this.peopleRepository.update(personElement.id, { homeworld: null });
+      });
+    }
+
+    const species = await this.speciesRepository.findOne({
+      where: {
+        homeworld: { id: id },
+      },
+    });
+    if (species) await this.speciesRepository.update(species.id, { homeworld: null });
+
     return this.planetRepository.remove(planet);
   }
 }

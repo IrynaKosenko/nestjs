@@ -1,9 +1,9 @@
 import { Body, Controller, Post, UseInterceptors, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthService } from 'src/auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { ValidationUserDto } from './dto/validation-user.dto';
 import { RegistrationUserDto } from './dto/registration-user.dto';
-import { EntityInterceptors } from 'src/common/interceptors';
+import { EntityInterceptors } from '../common/interceptors';
 import { LocalAuthGuard } from './guards/local-auth.guards';
 import { Public } from './decorators/public.decorator';
 

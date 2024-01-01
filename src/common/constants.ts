@@ -18,6 +18,16 @@ export const entities = {
   films: 'films',
   people: 'people',
 };
+
+export const entitiesForSeeding = {
+  planets: 'planets',
+  starships: 'starships',
+  vehicles: 'vehicles',
+  species: 'species',
+  films: 'films',
+  people: 'people',
+};
+
 export const nameJoinedTables = {
   film_planet: 'film_planet',
   film_species: 'film_species',

@@ -17,11 +17,11 @@ import { UpdatePlanetDto } from './dto/update-planet.dto';
 import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Pagination } from 'nestjs-typeorm-paginate';
 import { Planet } from './entities/planet.entity';
-import { EntityInterceptors, EntitiesInterceptors } from 'src/common/interceptors';
-import { NotNullUpdatedObjectException } from 'src/exceptions/NotNullUpdatedObject.exception';
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { RoleGuard } from 'src/auth/guards/role.guard';
-import { Role } from 'src/common/constants';
+import { EntityInterceptors, EntitiesInterceptors } from '../common/interceptors';
+import { NotNullUpdatedObjectException } from '../exceptions/NotNullUpdatedObject.exception';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { RoleGuard } from '../auth/guards/role.guard';
+import { Role } from '../common/constants';
 
 @Controller('planets')
 @ApiTags('planets')

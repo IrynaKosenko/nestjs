@@ -4,8 +4,8 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
-import { RegistrationUserDto } from 'src/auth/dto/registration-user.dto';
-import { PasswordNotMatchException } from 'src/exceptions/PasswordsNotMatch.exception';
+import { RegistrationUserDto } from '../../auth/dto/registration-user.dto';
+import { PasswordNotMatchException } from '../../exceptions/PasswordsNotMatch.exception';
 
 @ValidatorConstraint({ name: 'passwordRepeated', async: true })
 @Injectable()

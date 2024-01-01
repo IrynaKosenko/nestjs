@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
-import { entities, nameJoinedTables } from 'src/common/constants';
-import { Film } from 'src/film/entities/film.entity';
-import { Person } from 'src/people/entities/person.entity';
-import { Planet } from 'src/planet/entities/planet.entity';
-import { Species } from 'src/species/entities/species.entity';
-import { Starship } from 'src/starship/entities/starship.entity';
-import { Vehicle } from 'src/vehicle/entities/vehicle.entity';
+import { entitiesForSeeding, nameJoinedTables } from '../common/constants';
+import { Film } from '../film/entities/film.entity';
+import { Person } from '../people/entities/person.entity';
+import { Planet } from '../planet/entities/planet.entity';
+import { Species } from '../species/entities/species.entity';
+import { Starship } from '../starship/entities/starship.entity';
+import { Vehicle } from '../vehicle/entities/vehicle.entity';
 import { QueryRunner, Repository } from 'typeorm';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class MigrationService {
   ) {}
 
   async fetchAndFillTables() {
-    for (let entity in entities) {
+    for (let entity in entitiesForSeeding) {
       let url = `https://swapi.dev/api/${entity}`;
 
       while (url !== null) {

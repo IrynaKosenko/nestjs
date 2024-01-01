@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator';
-import { EmailExistException } from 'src/exceptions/EmailExist.exception';
-import { User } from 'src/users/entities/user.entity';
+import { EmailExistException } from '../../exceptions/EmailExist.exception';
+import { User } from '../../users/entities/user.entity';
 import { Repository } from 'typeorm';
 
 @ValidatorConstraint({ name: 'email', async: true })

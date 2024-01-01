@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Image } from 'src/image/entities/image.entity';
+import { Image } from '../image/entities/image.entity';
 import { ConfigService } from '@nestjs/config';
 import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import { Person } from 'src/people/entities/person.entity';
-import { createNewFileName, getMaxId } from 'src/common/common-functions';
-import { Planet } from 'src/planet/entities/planet.entity';
-import { Film } from 'src/film/entities/film.entity';
-import { Species } from 'src/species/entities/species.entity';
-import { Starship } from 'src/starship/entities/starship.entity';
-import { Vehicle } from 'src/vehicle/entities/vehicle.entity';
-import { EntityNotFoundException } from 'src/exceptions/NotFound.exception';
-import { entities } from 'src/common/constants';
+import { Person } from '../people/entities/person.entity';
+import { createNewFileName, getMaxId } from '../common/common-functions';
+import { Planet } from '../planet/entities/planet.entity';
+import { Film } from '../film/entities/film.entity';
+import { Species } from '../species/entities/species.entity';
+import { Starship } from '../starship/entities/starship.entity';
+import { Vehicle } from '../vehicle/entities/vehicle.entity';
+import { EntityNotFoundException } from '../exceptions/NotFound.exception';
+import { entities } from '../common/constants';
 
 @Injectable()
 export class ImageService {
@@ -164,7 +164,7 @@ export class ImageService {
     return await this.imageRepository.remove(imagesToDelete);
   }
 
-  async deleteImage(imageName: string) {
+  async deleteImage(imageName: string): Promise<Image> {
     const image = await this.imageRepository.findOneOrFail({
       where: {
         name: imageName,

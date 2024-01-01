@@ -71,3 +71,5 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+TypeORM сам по собі не надає можливості створювати нові бази даних. Він припускає, що база даних вже існує

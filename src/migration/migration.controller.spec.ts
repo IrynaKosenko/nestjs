@@ -8,7 +8,12 @@ describe('MigrationController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [MigrationController],
-      providers: [MigrationService],
+      providers: [
+        {
+          provide: MigrationService,
+          useValue: {},
+        },
+      ],
     }).compile();
 
     controller = module.get<MigrationController>(MigrationController);
