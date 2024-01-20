@@ -3,7 +3,6 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PeopleModule } from './people/people.module';
 import { FilmModule } from './film/film.module';
-import { MigrationModule } from './migration/migration.module';
 import { PlanetModule } from './planet/planet.module';
 import { StarshipModule } from './starship/starship.module';
 import { VehicleModule } from './vehicle/vehicle.module';
@@ -21,12 +20,10 @@ import JwtAuthGuard from './auth/guards/jwt-auth.guard';
     TypeOrmModule.forRoot(dataSourceOptions),
     PeopleModule,
     FilmModule,
-    MigrationModule,
     PlanetModule,
     StarshipModule,
     VehicleModule,
     SpeciesModule,
-    MigrationModule,
     ImageModule,
     AuthModule,
     UsersModule,

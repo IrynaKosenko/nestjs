@@ -4,7 +4,7 @@ import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EntityNotFoundException } from '../exceptions/NotFound.exception';
-import { compare, genSaltSync, hashSync } from 'bcrypt';
+import { genSaltSync, hashSync } from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -51,13 +51,6 @@ export class UsersService {
     if (!userDB) throw new EntityNotFoundException('Such user');
 
     return await this.usersRepository.remove(userDB);
-  }
-
-  private async verifyPassword(plainTextPassword: string, hashedPassword: string) {
-    const isPasswordMatching = await compare(plainTextPassword, hashedPassword);
-    if (!isPasswordMatching) {
-      throw new Error('Wrong credentials provided.');
-    }
   }
 
   private hashPassword(plainTextPassword: string) {

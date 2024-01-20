@@ -3,8 +3,8 @@ import 'dotenv/config';
 
 export const dataSourceOptionsTest: DataSourceOptions = {
   type: 'mysql',
-  host: process.env.DATABASE_HOST,
-  port: 3306,
+  host: process.env.DATABASE_TEST_HOST,
+  port: Number(process.env.DATABASE_PORT),
   username: process.env.TEST_DATABASE_USER,
   password: process.env.TEST_DATABASE_PASSWORD,
   database: process.env.TEST_DATABASE,

@@ -38,3 +38,8 @@ export const nameJoinedTables = {
   person_starship: 'person_starship',
   person_vehicle: 'person_vehicle',
 };
+
+export interface Payload {
+  sub: string;
+  role: Role;
+}

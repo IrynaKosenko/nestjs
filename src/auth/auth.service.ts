@@ -8,6 +8,7 @@ import { User } from '../users/entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { EntityNotFoundException } from '../exceptions/NotFound.exception';
+import { Payload } from '../common/constants';
 
 @Injectable()
 export class AuthService {
@@ -30,7 +31,7 @@ export class AuthService {
     return resultUser;
   }
 
-  async validateUser(email: string, pass: string): Promise<any> {
+  async validateUser(email: string, pass: string): Promise<User> {
     const userDB = await this.usersRepository.findOne({ where: { email: email } });
 
     if (!userDB) throw new EntityNotFoundException('Such user');
@@ -45,7 +46,9 @@ export class AuthService {
       where: { email: validationUserDto.email },
     });
     const { password, ...restUser } = userDB;
-    const payload = { sub: validationUserDto.email, role: restUser.role };
+
+    const payload: Payload = { sub: validationUserDto.email, role: restUser.role };
+
     return {
       email: validationUserDto.email,
       access_token: this.jwtService.sign(payload),

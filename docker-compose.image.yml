@@ -21,9 +21,8 @@ services:
       - starwars_network
 
   starwars:
-    image: starwars
+    image: irynakos/starwars
     container_name: starwars
-    build: .
     ports:
       - ${APP_PORT}:${APP_PORT}
     networks:

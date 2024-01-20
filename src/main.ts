@@ -6,9 +6,7 @@ import 'reflect-metadata';
 import { ValidationPipe } from '@nestjs/common';
 import { AllExceptionsFilter } from './filters/HttpException.filter';
 import { useContainer } from 'class-validator';
-import dataSource from 'database/data-source';
 import { fetchAndFillTablesTestDatabase } from 'test/seedingTestDb';
-import dataSourceTest from 'database/test/data-source-test';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

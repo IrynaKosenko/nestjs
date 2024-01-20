@@ -13,7 +13,7 @@ export class Film extends AbstractEntity<Film> {
   title: string;
   @Column()
   episode_id: string;
-  @Column()
+  @Column({ length: 5000 })
   opening_crawl: string;
   @Column()
   director: string;
