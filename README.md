@@ -83,18 +83,18 @@ If you want to download the whole project from Githuband don't want to use docke
 
 # Run application and databases in containers:
 
-'git remote add origin https://github.com/IrynaKosenko/level_4_nestjs'
-'git checkout'   (output - origin  https://github.com/IrynaKosenko/level_4_nestjs)
-'git fetch --all'
-'git checkout origin/main -- docker-compose.image.yml'
-create .env file (or ask me)
-RUN 'docker-compose -f docker-compose.image.yml up'
+git remote add origin https://github.com/IrynaKosenko/level_4_nestjs
+git checkout  (output - origin  https://github.com/IrynaKosenko/level_4_nestjs)
+git fetch --all
+git checkout origin/main -- docker-compose.image.yml
+create .env file (or link - https://drive.google.com/file/d/1DCunAz8McsuDyMqbnqMvMgc1a5nmLGKm/view?usp=drive_link)
+RUN docker-compose -f docker-compose.image.yml up
 
 IF you get an error: Access denied for user 'userStarwars'@'*':
 Enter to the terminal 'mysql-db' container (linux or  Docker Desktop terminal):
 
-'docker exec -it mysql-db bash'
-'mysql -u root -p'
+docker exec -it mysql-db bash
+mysql -u root -p
 enter password: root
 CREATE USER 'userStarwars'@'%' IDENTIFIED BY 'test';
 GRANT ALL PRIVILEGES ON *.* TO 'userStarwars'@'%' WITH GRANT OPTION;
@@ -115,4 +115,9 @@ In browser follow the link <http://localhost:3001/api>
 
 Swagger documentation located at [http://localhost:3001/api](http://localhost:3001/api)
 
-phpAdmin for database management on http://localhost:8080
+phpAdmin for database management on http://localhost:8081
+- server - mysql-db (if in docker container) or mysql
+- user - root
+- password - root
+
+Link .env file - https://drive.google.com/file/d/1DCunAz8McsuDyMqbnqMvMgc1a5nmLGKm/view?usp=drive_link

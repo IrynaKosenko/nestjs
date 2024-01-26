@@ -10,6 +10,9 @@ services:
     ports:
       - 3307:3306
     environment:
+      MYSQL_DATABASE: ${DATABASE}
+      MYSQL_DATABASE_USER: ${DATABASE_USER}
+      MYSQL_DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
     volumes:
       - myapp:/home/app
@@ -37,7 +40,7 @@ services:
     container_name: phpmyadmin
     restart: always
     ports:
-      - 8080:80
+      - 8081:80
     environment:
       - PMA_ARBITRARY=1
     networks:
@@ -47,8 +50,11 @@ services:
     image: mysql
     container_name: test-db
     ports:
-      - 3308:3306
+      - 3308:3305
     environment:
+      MYSQL_DATABASE: ${TEST_DATABASE}
+      MYSQL_DATABASE_USER: ${TEST_DATABASE_USER}
+      MYSQL_DATABASE_PASSWORD: ${TEST_DATABASE_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
     volumes:
       - myapp:/home/app/test

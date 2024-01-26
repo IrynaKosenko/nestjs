@@ -1,12 +1,12 @@
 version: '3.1'
 networks:
-  starwars_network:
+  starwarsnetwork:
     driver: bridge
 
 services:
-  mysql-db:
+  mysql:
     image: mysql
-    container_name: mysql-db
+    container_name: mysql
     ports:
       - 3307:${DATABASE_PORT}
     environment:
@@ -18,26 +18,22 @@ services:
       - myapp:/home/app
     restart: always
     networks:
-      - starwars_network
+      - starwarsnetwork
 
-  starwars:
-    image: starwars
-    container_name: starwars
-    build: .
-    ports:
-      - ${APP_PORT}:${APP_PORT}
-    networks:
-      - starwars_network
-    env_file:
-      - .env
-    depends_on:
-      - 'mysql-db'
-      - 'test-db'
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
     restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - starwarsnetwork
 
-  test-db:
+  test:
     image: mysql
-    container_name: test-db
+    container_name: test
     ports:
       - 3308:${DATABASE_PORT}
     environment:
@@ -49,6 +45,6 @@ services:
       - myapp:/home/app/test
     restart: always
     networks:
-      - starwars_network
+      - starwarsnetwork
 volumes:
   myapp:
