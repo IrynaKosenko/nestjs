@@ -136,3 +136,5 @@ stop all container
 remove starwars container - "sudo docker rm starwars"
 Change value of variable SCOPE in .env file on "testing".
 RUN docker compose up
+
+phpAdmin for database management available on http://localhost:8080
