@@ -24,26 +24,25 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Installation first time only!
+
+```bash
+$ npm install
 
 ## Installation
 
 ```bash
 $ npm install
-```
 
 ## Running the app
 
 ```bash
+
 # development
 $ npm run start
 
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
 
 ## Test
 
@@ -53,88 +52,67 @@ $ npm run test
 
 # e2e tests
 $ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
-
 -------------------------------------------------------------------------------------------------------------------------
 
-If you want to download the whole project from Github:
+If you want to download the whole project from Githuband don't want to use docker:
 
-1. git pull
-
-2. На сервері mysql (or phpMyAdmin, workbench, docker) необхідно створити "вручну" базу даних starwars "create database starwars;", так як TypeORM сам по собі не надає можливості створювати нові бази даних. Він припускає, що база даних вже існує. Реєстраційні дані про користувача необхідно внести до .env файла для підключення до БД.
-
-3.Командою - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
-
-4. Run application: "npm run start:dev"
-
-5. Follow the link <http://localhost:3001/api>
+1. git clone https://github.com/IrynaKosenko/level_4_nestjs.git
+2. npm init
+3. npm install
+4. На сервері mysql (or phpMyAdmin, workbench, docker) необхідно створити "вручну" базу даних starwars "create database starwars;", так як TypeORM сам по собі не надає можливості створювати нові бази даних. Він припускає, що база даних вже існує. Реєстраційні дані про користувача необхідно внести до .env файла для підключення до БД.
+4.Командою - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
+5. Run application: "npm run start:dev"
+5. Follow the link <http://localhost:3001/api> in browser.
 
 ////////////////////////////////
 
 Для виконання е2е тестів:
+1. Зупинити програму
 
-1. Змінити значення змінної SCOPE в файлі .env на "testing".
+2. Змінити значення змінної SCOPE в файлі .env на "testing".
 
-2. Створити тестову базу даних starwars "create database db_test;"
-
-3. В файлі package.json в існуючій команді замінити шлях до файлу з налаштуваннями БД: "typeorm": "npm run build && npx typeorm -d dist/database/test/data-source-test.js"
+3. Створити нову тестову базу даних starwars "create database db_test;"
 
 4. Виконати команду "npm run migrationtest:run". запуститься файл для створення таблиць, що лежить в папці database/test/migration
 
 5. Запустити додаток "npm run start:dev". В файлі main.ts буде викликаний метод fetchAndFillTablesTestDatabase() для заповнення таблиць даними.Почекати одну-дві хвилини поки всі таблиці заповняться.
 
-7. Запустити команду "npm run test:e2e test/planet.e2e-spec.ts" для запуску тесту.
+6. Запустити команду "npm run test:e2e test/planet.e2e-spec.ts" для запуску тесту.
 
-//////////////////
+------------------------------------------------------------------------------------------------------------------------------------------------
 
-PULL AN IMAGE STARWARS FROM DOCKER HUB:
+# Run application and databases in containers:
 
-RUN docker pull irynakos/starwars
+'git remote add origin https://github.com/IrynaKosenko/level_4_nestjs'
+'git checkout'   (output - origin  https://github.com/IrynaKosenko/level_4_nestjs)
+'git fetch --all'
+'git checkout origin/main -- docker-compose.image.yml'
+create .env file (or ask me)
+RUN 'docker-compose -f docker-compose.image.yml up'
 
-create new file or pull from github.com "docker-compose.image.yml" file with mysql database
+IF you get an error: Access denied for user 'userStarwars'@'*':
+Enter to the terminal 'mysql-db' container (linux or  Docker Desktop terminal):
 
-RUN docker compose up docker-compose.image.yml
-
-IF you get an error: Access denied for user 'userStarwars'@'*'
-
-in terminal enter:
-sudo docker exec -it mysql-db bash
-mysql -u root -p
+'docker exec -it mysql-db bash'
+'mysql -u root -p'
 enter password: root
 CREATE USER 'userStarwars'@'%' IDENTIFIED BY 'test';
 GRANT ALL PRIVILEGES ON *.* TO 'userStarwars'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-then exit
-stop all container and run 'sudo docker copmpose up' again.
 
-ELSE in another terminal:
+Аnd repeat all operations for testing database ( 'test-db' container, for 'userTest') if it`s necessary.
 
-sudo docker exec -it starwars bash
+Stop all container and run again.
+
+THEN: enter to the terminal 'starwars' container (linux or Docker Desktop terminal):
+
+docker exec -it starwars bash
 and run migrations  -  "npm run migration:run"
 and for testing database - "npm run migrationtest:run"
 
-FOR TESTING IN DOCKER CONTAINER:
+In browser follow the link <http://localhost:3001/api>
 
-stop all container
-remove starwars container - "sudo docker rm starwars"
-Change value of variable SCOPE in .env file on "testing".
-RUN docker compose up
 
-phpAdmin for database management available on http://localhost:8080
+Swagger documentation located at [http://localhost:3001/api](http://localhost:3001/api)
+
+phpAdmin for database management on http://localhost:8080
