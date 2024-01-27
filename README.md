@@ -24,54 +24,33 @@
 
 ## Description
 
-## Installation first time only!
+---------------------------------------------------------------------------------------------------------------
 
-```bash
-$ npm install
+Download the project from Github:
 
-## Installation
-
-```bash
-$ npm install
-
-## Running the app
-
-```bash
-
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
--------------------------------------------------------------------------------------------------------------------------
-
-If you want to download the whole project from Githuband don't want to use docker:
-
-1. git clone https://github.com/IrynaKosenko/level_4_nestjs.git
-2. npm init
+1. git init
+2. git clone https://github.com/IrynaKosenko/nestjs
 3. npm install
-4. На сервері mysql (or phpMyAdmin, workbench, docker) необхідно створити "вручну" базу даних starwars "create database starwars;", так як TypeORM сам по собі не надає можливості створювати нові бази даних. Він припускає, що база даних вже існує. Реєстраційні дані про користувача необхідно внести до .env файла для підключення до БД.
-4.Командою - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
-5. Run application: "npm run start:dev"
-5. Follow the link <http://localhost:3001/api> in browser.
+4. create .env file or link - https://drive.google.com/file/d/1DCunAz8McsuDyMqbnqMvMgc1a5nmLGKm/view?usp=drive_link
+5. RUN docker-compose -f docker-compose.yml up -d
+6. Create new user in docker container terminal where was run mysql DB: 
+mysql -u root -p
+enter password: root
+CREATE USER 'userStarwars'@'%' IDENTIFIED BY 'test';
+GRANT ALL PRIVILEGES ON *.* TO 'userStarwars'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+Аnd repeat all operations for testing database ( 'test-db' container, for 'userTest') if
 
-////////////////////////////////
+7. Командою - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
+8. Run application: "npm run start:dev"
+9. Follow the link <http://localhost:3001/api> in browser.
+
+---------------------------------------------------------------------------------------------------------------
 
 Для виконання е2е тестів:
 1. Зупинити програму
 
 2. Змінити значення змінної SCOPE в файлі .env на "testing".
-
-3. Створити нову тестову базу даних starwars "create database db_test;"
 
 4. Виконати команду "npm run migrationtest:run". запуститься файл для створення таблиць, що лежить в папці database/test/migration
 
@@ -79,15 +58,10 @@ If you want to download the whole project from Githuband don't want to use docke
 
 6. Запустити команду "npm run test:e2e test/planet.e2e-spec.ts" для запуску тесту.
 
-------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
 
 # Run application and databases in containers:
 
-git remote add origin https://github.com/IrynaKosenko/level_4_nestjs
-git checkout  (output - origin  https://github.com/IrynaKosenko/level_4_nestjs)
-git fetch --all
-git checkout origin/main -- docker-compose.image.yml
-create .env file (or link - https://drive.google.com/file/d/1DCunAz8McsuDyMqbnqMvMgc1a5nmLGKm/view?usp=drive_link)
 RUN docker-compose -f docker-compose.image.yml up
 
 IF you get an error: Access denied for user 'userStarwars'@'*':
