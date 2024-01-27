@@ -17,6 +17,8 @@ services:
     volumes:
       - myapp:/home/app
     restart: always
+    env_file:
+      - .env.image
     networks:
       - starwarsnetwork
 
@@ -44,6 +46,8 @@ services:
     volumes:
       - myapp:/home/app/test
     restart: always
+      env_file:
+      - .env.image
     networks:
       - starwarsnetwork
 volumes:
