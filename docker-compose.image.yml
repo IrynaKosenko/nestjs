@@ -26,15 +26,15 @@ services:
     image: irynakos/swapi-starwars
     container_name: starwars
     ports:
-      - ${APP_PORT}:${APP_PORT}
+      - 3001:3001
     networks:
       - starwars_network
     env_file:
       - .env.image
-    depends_on:
-      - 'mysql-db'
-      - 'test-db'
-      - 'phpmyadmin'
+    links:
+      - mysql-db
+      - test-db
+      - phpmyadmin
     restart: always
 
   phpmyadmin:

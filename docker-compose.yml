@@ -1,12 +1,12 @@
 version: '3.1'
 networks:
-  starwarsnetwork:
+  swapi_network:
     driver: bridge
 
 services:
-  mysql:
+  mysqldb:
     image: mysql
-    container_name: mysql
+    container_name: mysql-container
     ports:
       - 3307:${DATABASE_PORT}
     environment:
@@ -18,24 +18,27 @@ services:
       - myapp:/home/app
     restart: always
     env_file:
-      - .env.image
+      - .env
     networks:
-      - starwarsnetwork
+      - swapi_network
 
   phpmyadmin:
     image: phpmyadmin
     container_name: phpmyadmin
     restart: always
     ports:
-      - 8081:80
+      - 8082:80
     environment:
       - PMA_ARBITRARY=1
     networks:
-      - starwarsnetwork
+      - swapi_network
+    links:
+      - mysqldb
+      - testdb
 
-  test:
+  testdb:
     image: mysql
-    container_name: test
+    container_name: test-container
     ports:
       - 3308:${DATABASE_PORT}
     environment:
@@ -46,9 +49,9 @@ services:
     volumes:
       - myapp:/home/app/test
     restart: always
-      env_file:
-      - .env.image
+    env_file:
+      - .env
     networks:
-      - starwarsnetwork
+      - swapi_network
 volumes:
   myapp:

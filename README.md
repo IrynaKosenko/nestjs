@@ -36,18 +36,23 @@ Download the project from Github:
 6. Create new user in docker container terminal where was run mysql DB: 
 mysql -u root -p
 enter password: root
-CREATE USER 'userStarwars'@'%' IDENTIFIED BY 'test';
-GRANT ALL PRIVILEGES ON *.* TO 'userStarwars'@'%' WITH GRANT OPTION;
+CREATE USER 'swapi'@'%' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'swapi'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-Аnd repeat all operations for testing database ( 'test-db' container, for 'userTest') if
+Аnd repeat all operations for testing database ( 'test-container' container, for 'swapi-test') if
 
 7. Командою - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
 8. Run application: "npm run start:dev"
 9. Follow the link <http://localhost:3001/api> in browser.
 
+phpAdmin for database management on http://localhost:8082
+- server - mysql-container
+- user - swapi
+- password - root
+
 ---------------------------------------------------------------------------------------------------------------
 
-Для виконання е2е тестів:
+# Для виконання е2е тестів:
 1. Зупинити програму
 
 2. Змінити значення змінної SCOPE в файлі .env на "testing".
@@ -62,23 +67,11 @@ FLUSH PRIVILEGES;
 
 # Run application and databases in containers:
 
+Download and add to the project .env.image file - 
+
 RUN docker-compose -f docker-compose.image.yml up
 
-IF you get an error: Access denied for user 'userStarwars'@'*':
-Enter to the terminal 'mysql-db' container (linux or  Docker Desktop terminal):
-
-docker exec -it mysql-db bash
-mysql -u root -p
-enter password: root
-CREATE USER 'userStarwars'@'%' IDENTIFIED BY 'test';
-GRANT ALL PRIVILEGES ON *.* TO 'userStarwars'@'%' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-
-Аnd repeat all operations for testing database ( 'test-db' container, for 'userTest') if it`s necessary.
-
-Stop all container and run again.
-
-THEN: enter to the terminal 'starwars' container (linux or Docker Desktop terminal):
+IF you get an error - restart all containers.
 
 docker exec -it starwars bash
 and run migrations  -  "npm run migration:run"
@@ -86,12 +79,15 @@ and for testing database - "npm run migrationtest:run"
 
 In browser follow the link <http://localhost:3001/api>
 
+phpAdmin for database management on http://localhost:8081
+- server - mysql-db if in docker container
+- user - root
+- password - root
 
-Swagger documentation located at [http://localhost:3001/api](http://localhost:3001/api)
+
 
 phpAdmin for database management on http://localhost:8081
 - server - mysql-db (if in docker container) or mysql
 - user - root
 - password - root
 
-Link .env file - https://drive.google.com/file/d/1DCunAz8McsuDyMqbnqMvMgc1a5nmLGKm/view?usp=drive_link
