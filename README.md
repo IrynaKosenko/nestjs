@@ -31,7 +31,7 @@ Download the project from Github:
 1. git init
 2. git clone https://github.com/IrynaKosenko/nestjs
 3. npm install
-4. create .env file or link - https://drive.google.com/file/d/1DCunAz8McsuDyMqbnqMvMgc1a5nmLGKm/view?usp=drive_link
+4. create .env file or link - <https://drive.google.com/file/d/1FKadu1gWTlJo1CIVjpT7jgnshr0iGFL3/view?usp=sharing>
 5. RUN docker-compose -f docker-compose.yml up -d
 6. Create new user in docker container terminal where was run mysql DB: 
 mysql -u root -p
@@ -67,7 +67,7 @@ phpAdmin for database management on http://localhost:8082
 
 # Run application and databases in containers:
 
-Download and add to the project .env.image file - 
+Download and add to the project .env.image file - <https://drive.google.com/file/d/1fYeXNbVhzQjLiFhUQ-NVqxNLrRsSC16o/view?usp=sharing>
 
 RUN docker-compose -f docker-compose.image.yml up
 
