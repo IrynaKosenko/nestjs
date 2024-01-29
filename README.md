@@ -33,20 +33,21 @@ Download the project from Github:
 3. npm install
 4. create .env file or link - <https://drive.google.com/file/d/1FKadu1gWTlJo1CIVjpT7jgnshr0iGFL3/view?usp=sharing>
 5. RUN docker-compose -f docker-compose.yml up -d
-6. Create new user in docker container terminal where was run mysql DB: 
+6. If you get an error :
+Create new user in docker container terminal where was run mysql DB: 
 mysql -u root -p
 enter password: root
 CREATE USER 'swapi'@'%' IDENTIFIED BY 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'swapi'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-Аnd repeat all operations for testing database ( 'test-container' container, for 'swapi-test') if
+Аnd repeat all operations for testing database ( 'test-container' container, for 'swapi-test') if its need
 
 7. Командою - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
 8. Run application: "npm run start:dev"
 9. Follow the link <http://localhost:3001/api> in browser.
 
 phpAdmin for database management on http://localhost:8082
-- server - mysql-container
+- server - mysqldb
 - user - swapi
 - password - root
 
@@ -80,14 +81,6 @@ and for testing database - "npm run migrationtest:run"
 In browser follow the link <http://localhost:3001/api>
 
 phpAdmin for database management on http://localhost:8081
-- server - mysql-db if in docker container
+- server - mysql-db
 - user - root
 - password - root
-
-
-
-phpAdmin for database management on http://localhost:8081
-- server - mysql-db (if in docker container) or mysql
-- user - root
-- password - root
-

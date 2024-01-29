@@ -13,8 +13,8 @@ services:
       - .env.image
     environment:
       MYSQL_DATABASE: ${DATABASE}
-      MYSQL_DATABASE_USER: ${DATABASE_USER}
-      MYSQL_DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
     volumes:
       - myapp:/home/app
@@ -33,7 +33,6 @@ services:
       - .env.image
     links:
       - mysql-db
-      - test-db
       - phpmyadmin
     restart: always
 
@@ -47,23 +46,7 @@ services:
       - PMA_ARBITRARY=1
     networks:
       - starwars_network
-
-  test-db:
-    image: mysql
-    container_name: test-db
-    ports:
-      - 3308:3305
-    environment:
-      MYSQL_DATABASE: ${TEST_DATABASE}
-      MYSQL_DATABASE_USER: ${TEST_DATABASE_USER}
-      MYSQL_DATABASE_PASSWORD: ${TEST_DATABASE_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
-    volumes:
-      - myapp:/home/app/test
-    restart: always
-    networks:
-      - starwars_network
-    env_file:
-      - .env.image
+    links:
+      - mysql-db
 volumes:
   myapp:

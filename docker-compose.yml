@@ -40,14 +40,14 @@ services:
     image: mysql
     container_name: testdb
     ports:
-      - 3308:3305
+      - 3308:3306
     environment:
       MYSQL_DATABASE: ${TEST_DATABASE}
       MYSQL_USER: ${TEST_DATABASE_USER}
       MYSQL_PASSWORD: ${TEST_DATABASE_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
     volumes:
-      - myapp:/home/app/test
+      - myapp:/home/app/test/1
     restart: always
     env_file:
       - .env
