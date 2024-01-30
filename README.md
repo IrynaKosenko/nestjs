@@ -29,7 +29,7 @@
 Download the project from Github:
 
 1. git init
-2. git clone https://github.com/IrynaKosenko/nestjs
+2. git clone [https://github.com/IrynaKosenko/nestjs](https://github.com/IrynaKosenko/nestjs.git)
 3. npm install
 4. create .env file or link - <https://drive.google.com/file/d/1ffLJbX9Y5yCLVa4CMxyvp2FHmiyjla_E/view?usp=sharing>
 5. RUN docker-compose -f docker-compose.yml up -d
