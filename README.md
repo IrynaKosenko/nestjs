@@ -28,11 +28,10 @@ An application that allows you to view, create, edit and delete any entity from 
 
 # Download the project from Github:
 
-<<<<<<< HEAD
-=======
+An application that allows you to view, create, modify and delete any entity from the "Starwars" movies.
+----------------------------------------------------------------------------------------------
 # Download the project from Github:
 
->>>>>>> b6bebad686ff4f781afb52df619ec97afb7e094b
 Run for the first time:
 1. RUN - git init
 2. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
@@ -60,14 +59,6 @@ phpAdmin for database management on http://localhost:8082
 5. Run application "npm run start:dev". In the main.ts, the fetchAndFillTablesTestDatabase() method will be called to fill the tables with data. Wait a minute or two until all the tables are filled.
 
 6. Run the command "npm run test:e2e test/planet.e2e-spec.ts" to run the test.
-<<<<<<< HEAD
-=======
-
-phpAdmin for test database management on http://localhost:8082
-- server - testdb
-- user - userTest
-- password - test
->>>>>>> b6bebad686ff4f781afb52df619ec97afb7e094b
 
 phpAdmin for test database management on http://localhost:8082
 - server - testdb
