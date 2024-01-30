@@ -23,20 +23,17 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
-An application that allows you to view, create, edit and delete any entity from Starwars.
-----------------------------------------------------------------------------------------------
-
-# Download the project from Github:
 
 An application that allows you to view, create, modify and delete any entity from the "Starwars" movies.
 ----------------------------------------------------------------------------------------------
+
 # Download the project from Github:
 
 Run for the first time:
 1. RUN - git init
 2. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
 3. RUN - npm install
-4. Create .env file or link - https://drive.google.com/drive/folders/1CaxIt4PGPDIZFikIpmqRATfVMePgeAA8?usp=drive_link
+4. Create .env file or link - https://drive.google.com/drive/folders/1MC0uaKWEwAfzs_Ap-c3_QjTrV5xbJgrt?usp=sharing
 5. RUN - docker-compose -f docker-compose.yml up -d
 6. RUN - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
 7. Run application: "npm run start:dev"
@@ -50,15 +47,12 @@ phpAdmin for database management on http://localhost:8082
 --------------------------------------------------------------------------------------------
 
 # Для виконання е2е тестів:
+
 1. Stop application
-
 2. Change the value of the SCOPE variable in the .env file to "testing".
-
-4. Run the command "npm run migrationtest:run" will run the table creation file located in the "database/test/migration" folder
-
-5. Run application "npm run start:dev". In the main.ts, the fetchAndFillTablesTestDatabase() method will be called to fill the tables with data. Wait a minute or two until all the tables are filled.
-
-6. Run the command "npm run test:e2e test/planet.e2e-spec.ts" to run the test.
+3. Run the command "npm run migrationtest:run" will run the table creation file located in the "database/test/migration" folder
+4. Run application "npm run start:dev". In the main.ts, the fetchAndFillTablesTestDatabase() method will be called to fill the tables with data. Wait a minute or two until all the tables are filled.
+5. Run the command "npm run test:e2e test/planet.e2e-spec.ts" to run the test.
 
 phpAdmin for test database management on http://localhost:8082
 - server - testdb
@@ -66,22 +60,19 @@ phpAdmin for test database management on http://localhost:8082
 - password - test
 
 -----------------------------------------------------------------------------------
+
 # Run application and databases in containers:
 
-Download and add to the project .env file - <https://drive.google.com/file/d/1lldbCYgM7Wvgb51MYzNOR-VFBAIEP_B9/view?usp=sharing>
-
-Download docker-compose.image.yml file from Github repository: <https://github.com/IrynaKosenko/nestjs>
-RUN docker-compose -f docker-compose.image.yml up
-
-IF you get an error - restart all containers.
+1. Download and add to the project .env file - https://drive.google.com/drive/folders/1N6WVxr4SUR4RGe2isGn2YPNptra8US7u?usp=sharing
+2. Download 'docker-compose.image.yml' file from Github repository: <https://github.com/IrynaKosenko/nestjs>
+3. RUN - docker-compose -f docker-compose.image.yml up -d
 
 docker exec -it starwars bash
-and run migrations  -  "npm run migration:run"
-and for testing database - "npm run migrationtest:run"
+run migrations  -  "npm run migration:run"
 
 In browser follow the link <http://localhost:3001/api>
 
 phpAdmin for database management on http://localhost:8081
 - server - mysql-db
-- user - root
-- password - root
+- user - userStarwars
+- password - test
