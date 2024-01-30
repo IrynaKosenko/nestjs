@@ -26,43 +26,40 @@
 
 ---------------------------------------------------------------------------------------------------------------
 
-Download the project from Github:
+# Download the project from Github:
 
-1. git init
-2. git clone [https://github.com/IrynaKosenko/nestjs](https://github.com/IrynaKosenko/nestjs.git)
-3. npm install
-4. create .env file or link - <https://drive.google.com/file/d/1ffLJbX9Y5yCLVa4CMxyvp2FHmiyjla_E/view?usp=sharing>
-5. RUN docker-compose -f docker-compose.yml up -d
-6. If you get an error ACCESS_DENIED:
-Create new user in docker container terminal where was run mysql DB: 
-mysql -u root -p
-enter password: root
-CREATE USER 'swapi'@'%' IDENTIFIED BY 'root';
-GRANT ALL PRIVILEGES ON *.* TO 'swapi'@'%' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-Аnd repeat all operations for testing database ( 'test-container' container, for 'swapi-test') if its need
-
-7. Командою - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
-8. Run application: "npm run start:dev"
-9. Follow the link <http://localhost:3001/api> in browser.
+Run for the first time:
+1. RUN - git init
+2. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
+3. RUN - npm install
+4. Create .env file or link - https://drive.google.com/drive/folders/1CaxIt4PGPDIZFikIpmqRATfVMePgeAA8?usp=drive_link
+5. RUN - docker-compose -f docker-compose.yml up -d
+6. RUN - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
+7. Run application: "npm run start:dev"
+8. Follow the link <http://localhost:3001/api> in browser.
 
 phpAdmin for database management on http://localhost:8082
 - server - mysqldb
-- user - swapi
-- password - root
+- user - userStarwars
+- password - test
 
 ---------------------------------------------------------------------------------------------------------------
 
 # Для виконання е2е тестів:
-1. Зупинити програму
+1. Stop application
 
-2. Змінити значення змінної SCOPE в файлі .env на "testing".
+2. Change the value of the SCOPE variable in the .env file to "testing".
 
-4. Виконати команду "npm run migrationtest:run". запуститься файл для створення таблиць, що лежить в папці database/test/migration
+4. Run the command "npm run migrationtest:run" will run the table creation file located in the "database/test/migration" folder
 
-5. Запустити додаток "npm run start:dev". В файлі main.ts буде викликаний метод fetchAndFillTablesTestDatabase() для заповнення таблиць даними.Почекати одну-дві хвилини поки всі таблиці заповняться.
+5. Run application "npm run start:dev". In the main.ts, the fetchAndFillTablesTestDatabase() method will be called to fill the tables with data. Wait a minute or two until all the tables are filled.
 
-6. Запустити команду "npm run test:e2e test/planet.e2e-spec.ts" для запуску тесту.
+6. Run the command "npm run test:e2e test/planet.e2e-spec.ts" to run the test.
+
+phpAdmin for test database management on http://localhost:8082
+- server - testdb
+- user - userTest
+- password - test
 
 --------------------------------------------------------------------------------------------------------------
 
