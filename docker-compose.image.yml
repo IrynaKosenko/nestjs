@@ -7,10 +7,10 @@ services:
   mysql-db:
     image: mysql
     container_name: mysql-db
-    ports:
-      - 3309:3306
+    # ports:
+    #   - 3309:3306
     env_file:
-      - .env.image
+      - .env
     environment:
       MYSQL_DATABASE: ${DATABASE}
       MYSQL_USER: ${DATABASE_USER}
@@ -23,17 +23,22 @@ services:
       - starwars_network
 
   starwars:
-    image: irynakos/starwars
+    image: irynakos/starwars:latest
     container_name: starwars
     ports:
       - 3001:3001
     networks:
       - starwars_network
     env_file:
-      - .env.image
-    links:
+      - .env
+    depends_on:
       - mysql-db
       - phpmyadmin
+    environment:
+      MYSQL_DATABASE_HOST: ${DATABASE_HOST}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_PORT: ${MYSQL_PORT}
     restart: always
 
   phpmyadmin:
