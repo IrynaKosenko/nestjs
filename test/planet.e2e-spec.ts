@@ -267,7 +267,6 @@ describe('PlanetController (e2e)', () => {
         .set('Authorization', 'Bearer ' + access_token)
         .expect(200)
         .expect((response) => {
-          console.log(response.body);
           expect(response.body.data).not.toBeNull();
         });
     });

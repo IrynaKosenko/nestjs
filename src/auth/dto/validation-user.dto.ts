@@ -5,11 +5,11 @@ import { ValidEmailValidation } from '../../common/custom-validation/email-valid
 export class ValidationUserDto {
   @IsNotEmpty()
   @Validate(ValidEmailValidation)
-  @ApiProperty()
+  @ApiProperty({example:'exampleName@mail.com'})
   email: string;
 
   @IsString()
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiProperty({example:'examplePassword'})
   password: string;
 }

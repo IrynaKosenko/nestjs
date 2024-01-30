@@ -8,24 +8,24 @@ import { isPasswordMatchingValidation } from '../../common/custom-validation/pas
 export class RegistrationUserDto {
   @IsNotEmpty()
   @IsString()
-  @ApiProperty()
+  @ApiProperty({example:'exampleName'})
   username: string;
 
   @IsNotEmpty()
   @Validate(ValidEmailValidation)
   @Validate(EmailExistsValidation)
-  @ApiProperty()
+  @ApiProperty({example:'exampleName@mail.com'})
   email: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(8)
-  @ApiProperty()
+  @ApiProperty({example:'examplePassword'})
   password: string;
 
   @IsString()
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiProperty({example:'examplePassword'})
   @MinLength(8)
   @Validate(isPasswordMatchingValidation)
   passwordRepeated: string;
