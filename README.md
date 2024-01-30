@@ -31,9 +31,9 @@ Download the project from Github:
 1. git init
 2. git clone https://github.com/IrynaKosenko/nestjs
 3. npm install
-4. create .env file or link - <https://drive.google.com/file/d/1FKadu1gWTlJo1CIVjpT7jgnshr0iGFL3/view?usp=sharing>
+4. create .env file or link - <https://drive.google.com/file/d/1ffLJbX9Y5yCLVa4CMxyvp2FHmiyjla_E/view?usp=sharing>
 5. RUN docker-compose -f docker-compose.yml up -d
-6. If you get an error :
+6. If you get an error ACCESS_DENIED:
 Create new user in docker container terminal where was run mysql DB: 
 mysql -u root -p
 enter password: root
@@ -68,8 +68,9 @@ phpAdmin for database management on http://localhost:8082
 
 # Run application and databases in containers:
 
-Download and add to the project .env.image file - <https://drive.google.com/file/d/1fYeXNbVhzQjLiFhUQ-NVqxNLrRsSC16o/view?usp=sharing>
+Download and add to the project .env file - <https://drive.google.com/file/d/1lldbCYgM7Wvgb51MYzNOR-VFBAIEP_B9/view?usp=sharing>
 
+Download docker-compose.image.yml file from Github repository: <https://github.com/IrynaKosenko/nestjs>
 RUN docker-compose -f docker-compose.image.yml up
 
 IF you get an error - restart all containers.
