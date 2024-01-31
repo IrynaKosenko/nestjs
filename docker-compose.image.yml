@@ -7,15 +7,15 @@ services:
   mysql-db:
     image: mysql
     container_name: mysql-db
-    # ports:
-    #   - 3309:3306
+    ports:
+      - '3309:3306'
     env_file:
       - .env
     environment:
       MYSQL_DATABASE: ${DATABASE}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - myapp:/home/app
     restart: always
@@ -26,7 +26,7 @@ services:
     image: irynakos/starwars:latest
     container_name: starwars
     ports:
-      - 3001:3001
+      - '3001:3001'
     networks:
       - starwars_network
     env_file:
