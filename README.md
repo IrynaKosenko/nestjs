@@ -26,18 +26,40 @@
 
 An application that allows you to view, create, modify and delete any entity from the "Starwars" movies.
 ----------------------------------------------------------------------------------------------
+## Launch app without docker
 
-# Download the project from Github:
+## Preparation
+In your local database needs to create databases manually and change MySQL username and password to your local database in the .env file:
 
-Run for the first time:
-1. RUN - git init
-2. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
-3. RUN - npm install
-4. Create .env file or link - <https://drive.google.com/drive/folders/1MC0uaKWEwAfzs_Ap-c3_QjTrV5xbJgrt?usp=sharing>
-5. RUN - docker-compose -f docker-compose.yml up -d
-6. RUN - npm run migration:run - запустяться два файли, що лежать в папці database/migration, одна - для створення таблиць, друга - для заповнення таблиць даними зі swapi.
-7. Run application: "npm run start:dev"
-8. Follow the link <http://localhost:3001/api> in browser.
+create database starwars;
+create database db_test;
+
+## Installation
+$ npm install
+
+## Run migrations
+$ npm run migration:run 
+Two files located in the "database/migration" will be run: one to create the tables, the other to populate the tables with data from swapi.
+
+## Run app
+
+$ npm run start 
+or for watch mode:
+$ npm run start:dev
+
+ Follow the link <http://localhost:3001/api> in browser.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Run app with mysql database in container:
+
+1. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
+2. RUN - npm install
+3. Create .env file or link - <https://drive.google.com/drive/folders/1MC0uaKWEwAfzs_Ap-c3_QjTrV5xbJgrt?usp=sharing>
+4. RUN - docker-compose -f docker-compose.yml up -d
+5. RUN - npm run migration:run - two files located in the "database/migration" will be run: one to create the tables, the other to populate the tables with data from swapi.
+6. Run application: "npm run start:dev"
+7. Follow the link <http://localhost:3001/api> in browser.
 
 phpAdmin for database management on http://localhost:8082
 - server - mysqldb
@@ -46,7 +68,7 @@ phpAdmin for database management on http://localhost:8082
 
 --------------------------------------------------------------------------------------------
 
-# Для виконання е2е тестів:
+## Для виконання е2е тестів:
 
 1. Stop application
 2. Change the value of the SCOPE variable in the .env file to "testing".
