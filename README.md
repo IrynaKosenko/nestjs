@@ -31,7 +31,7 @@ An application that allows you to view, create, modify and delete any entity fro
 ## Preparation
 In your local database needs to create databases manually and change MySQL username and password to your local database in the .env file:
 
-create database starwars;
+create database starwars;   
 create database db_test;
 
 ## Installation
@@ -39,12 +39,13 @@ $ npm install
 
 ## Run migrations
 $ npm run migration:run 
+
 Two files located in the "database/migration" will be run: one to create the tables, the other to populate the tables with data from swapi.
 
 ## Run app
 
 $ npm run start 
-or for watch mode:
+
 $ npm run start:dev
 
  Follow the link <http://localhost:3001/api> in browser.
