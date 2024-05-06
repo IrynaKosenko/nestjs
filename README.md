@@ -58,7 +58,7 @@ $ npm run start:dev
 1. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
 2. RUN - npm install
 3. Create .env file or link - https://drive.google.com/file/d/15joV0M8okgM7NxS0sjwLhop4CrC-8CxG/view?usp=sharing
-4. 4. RUN - docker compose -f docker-compose.yml up -d
+4. RUN - docker compose -f docker-compose.yml up -d
 5. RUN - npm run migration:run - two files located in the "database/migration" will be run: one to create the tables, the other to populate the tables with data from swapi.
 6. Run application: "npm run start:dev"
 7. Follow the link <http://localhost:3001/api> in browser.
