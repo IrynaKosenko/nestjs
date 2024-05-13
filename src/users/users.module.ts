@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { UsersController } from './users.controller';
 import { User } from './entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmailExistsValidation } from '../common/custom-validation/email-exist.validation';
@@ -11,7 +10,7 @@ import JwtAuthGuard from '../auth/guards/jwt-auth.guard';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
-  controllers: [UsersController],
+  controllers: [],
   providers: [
     UsersService,
     EmailExistsValidation,
