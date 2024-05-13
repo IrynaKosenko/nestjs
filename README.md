@@ -89,7 +89,7 @@ phpAdmin for test database management on http://localhost:8082
 
 1. Download and add to the project .env file - <https://drive.google.com/drive/folders/1N6WVxr4SUR4RGe2isGn2YPNptra8US7u?usp=sharing>
 2. Download 'docker-compose.image.yml' file from Github repository: <https://github.com/IrynaKosenko/nestjs>
-3. RUN - docker-compose -f docker-compose.image.yml up -d
+3. RUN - docker compose -f docker-compose.image.yml up -d
 
 You might get an error: Error during Data Source initialization Error: connect ECONNREFUSED
 then you need to enter into the docker terminal and run migrations:
