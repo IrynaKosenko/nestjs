@@ -94,8 +94,8 @@ phpAdmin for test database management on http://localhost:8082
 You might get an error: Error during Data Source initialization Error: connect ECONNREFUSED
 then you need to enter into the docker terminal and run migrations:
 
-docker exec -it starwars bash
-run migrations  -  "npm run migration:run"
+docker exec -it starwars bash, 
+- run migrations  -  "npm run migration:run"
 
 Restart containers.
 
