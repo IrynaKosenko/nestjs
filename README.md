@@ -95,7 +95,8 @@ You might get an error: Error during Data Source initialization Error: connect E
 then you need to enter into the docker terminal and run migrations:
 
 docker exec -it starwars bash, 
-- run migrations  -  "npm run migration:run"
+-  "npm run migration:run"
+-  "npm run start:dev"
 
 Restart containers.
 
