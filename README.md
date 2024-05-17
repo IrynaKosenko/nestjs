@@ -96,7 +96,6 @@ then you need to enter into the docker terminal and run migrations:
 
 docker exec -it starwars bash, 
 -  "npm run migration:run"
--  "npm run start:dev"
 
 Restart containers.
 
