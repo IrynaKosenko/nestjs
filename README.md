@@ -57,10 +57,10 @@ $ npm run start:dev
 
 1. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
 2. RUN - npm install
-3. Create .env file or link - https://drive.google.com/file/d/15joV0M8okgM7NxS0sjwLhop4CrC-8CxG/view?usp=sharing
-4. RUN - docker compose -f docker-compose.yml up -d
+3. Create your .env file or link - https://drive.google.com/file/d/1LG3GkY_TnsjBncwYVKCkk7lYdiK0Ezcb/view?usp=sharing
+4. RUN - sudo docker compose up -d
 5. RUN - npm run migration:run - two files located in the "database/migration" will be run: one to create the tables, the other to populate the tables with data from swapi.
-6. Run application: "npm run start:dev"
+6. RUN - npm run start:dev"
 7. Follow the link <http://localhost:3001/api> in browser.
 
 phpAdmin for database management on http://localhost:8082
@@ -87,21 +87,13 @@ phpAdmin for test database management on http://localhost:8082
 
 # Run application and databases in docker containers:
 
-1. Download and add to the project .env file - <https://drive.google.com/drive/folders/1N6WVxr4SUR4RGe2isGn2YPNptra8US7u?usp=sharing>
+1. Download and add to the project .env file - https://drive.google.com/file/d/1mlWCJFjk1PTnTeTwZa4YmJIRIzWIL-zl/view?usp=sharing
 2. Download 'docker-compose.image.yml' file from Github repository: <https://github.com/IrynaKosenko/nestjs>
-3. RUN - docker compose -f docker-compose.image.yml up -d
+3. RUN - sudo docker compose -f docker-compose.image.yml up -d
 
-You might get an error: Error during Data Source initialization Error: connect ECONNREFUSED
-then you need to enter into the docker terminal and run migrations:
-
-docker exec -it starwars bash, 
--  "npm run migration:run"
-
-Restart containers.
-
-In browser follow the link <http://localhost:3001/api>
+In browser follow the link <http://localhost:3003/api>
 
 phpAdmin for database management on http://localhost:8081
-- server - mysql-db
+- server - db_mysql
 - user - userStarwars
 - password - test
