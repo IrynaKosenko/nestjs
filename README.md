@@ -29,7 +29,7 @@ An application that allows you to view, create, modify and delete any entity fro
 ## Launch app without docker
 
 ## Preparation
-Create .env file or link - https://drive.google.com/file/d/1CCZoejTro0QCUiNU7IkbKyR9Q24dFOie/view?usp=sharing
+Create .env file or link - https://drive.google.com/file/d/1EvTMCmUflSlXW22CRJXoPBJhzB1GGi1Q/view?usp=sharing
 
 ## In your local database needs to create databases manually and change MySQL username and password for your local database in the .env file:
 create database starwars;   
