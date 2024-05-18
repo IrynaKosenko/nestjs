@@ -1,14 +1,14 @@
 version: '3.1'
 networks:
-  starwars_network:
+  starwarsnetwork:
     driver: bridge
 
 services:
-  mysql-db:
+  db_mysql:
     image: mysql
-    container_name: mysql-db
+    container_name: db_mysql
     ports:
-      - '3309:3306'
+      - ${MY_DATABASE_PORT}:${DATABASE_PORT}
     env_file:
       - .env
     environment:
@@ -17,28 +17,27 @@ services:
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
-      - myapp:/home/app
+      - myapp:/home/app/db
     restart: always
     networks:
-      - starwars_network
+      - starwarsnetwork
 
   starwars:
     image: irynakos/starwars:latest
     container_name: starwars
     ports:
-      - '3001:3001'
+      - ${APP_PORT}:${APP_PORT}
     networks:
-      - starwars_network
+      - starwarsnetwork
     env_file:
       - .env
-    depends_on:
-      - mysql-db
+    links:
+      - db_mysql
       - phpmyadmin
     environment:
       MYSQL_DATABASE_HOST: ${DATABASE_HOST}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
-      MYSQL_PORT: ${MYSQL_PORT}
     restart: always
 
   phpmyadmin:
@@ -50,8 +49,9 @@ services:
     environment:
       - PMA_ARBITRARY=1
     networks:
-      - starwars_network
+      - starwarsnetwork
     links:
-      - mysql-db
+      - db_mysql
+
 volumes:
   myapp:
