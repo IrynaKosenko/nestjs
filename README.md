@@ -29,11 +29,11 @@ An application that allows you to view, create, modify and delete any entity fro
 ## Launch app without docker
 
 ## Preparation
-Create .env file or link - <https://drive.google.com/drive/folders/1MC0uaKWEwAfzs_Ap-c3_QjTrV5xbJgrt?usp=sharing>
-In your local database needs to create databases manually and change MySQL username and password to your local database in the .env file:
+Create .env file or link - https://drive.google.com/file/d/1CCZoejTro0QCUiNU7IkbKyR9Q24dFOie/view?usp=sharing
 
+## In your local database needs to create databases manually and change MySQL username and password for your local database in the .env file:
 create database starwars;   
-create database db_test;
+create database testdb;
 
 ## Installation
 $ npm install
@@ -44,8 +44,6 @@ $ npm run migration:run
 Two files located in the "database/migration" will be run: one to create the tables, the other to populate the tables with data from swapi.
 
 ## Run app
-
-$ npm run start 
 
 $ npm run start:dev
 
