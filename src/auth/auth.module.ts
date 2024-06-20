@@ -10,7 +10,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './strategies/local-strategy';
 import { EmailExistsValidation } from '../common/custom-validation/email-exist.validation';
-import { isPasswordMatchingValidation } from '../common/custom-validation/password-matcing';
+import { PasswordMatchingValidation } from '../common/custom-validation/password-matcing';
 import { ValidEmailValidation } from '../common/custom-validation/email-valid.validation';
 import { RoleGuard } from './guards/role.guard';
 import { JwtStrategy } from './strategies/jwt.strategy';
@@ -32,7 +32,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     AuthService,
     LocalStrategy,
     EmailExistsValidation,
-    isPasswordMatchingValidation,
+    PasswordMatchingValidation,
     ValidEmailValidation,
     UsersService,
     RoleGuard,

@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 import { User } from './entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmailExistsValidation } from '../common/custom-validation/email-exist.validation';
-import { isPasswordMatchingValidation } from '../common/custom-validation/password-matcing';
+import { PasswordMatchingValidation } from '../common/custom-validation/password-matcing';
 import { ValidEmailValidation } from '../common/custom-validation/email-valid.validation';
 import { RoleGuard } from '../auth/guards/role.guard';
 import JwtAuthGuard from '../auth/guards/jwt-auth.guard';
@@ -15,7 +15,7 @@ import JwtAuthGuard from '../auth/guards/jwt-auth.guard';
     UsersService,
     EmailExistsValidation,
     ValidEmailValidation,
-    isPasswordMatchingValidation,
+    PasswordMatchingValidation,
     RoleGuard,
     JwtAuthGuard,
   ],

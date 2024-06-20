@@ -50,7 +50,7 @@ export class ImageService {
 
     switch (entityParam) {
       case entities.people:
-        if (!(await this.peopleRepository.exist({ where: { id: id } })))
+        if (!(await this.peopleRepository.exists({ where: { id: id } })))
           throw new EntityNotFoundException('Person');
         newImage = this.imageRepository.create({
           id: maxImageId,
@@ -63,7 +63,7 @@ export class ImageService {
         });
         break;
       case entities.planets:
-        if (!(await this.planetRepository.exist({ where: { id: id } })))
+        if (!(await this.planetRepository.exists({ where: { id: id } })))
           throw new EntityNotFoundException('Planet');
         newImage = this.imageRepository.create({
           id: maxImageId,
@@ -76,7 +76,7 @@ export class ImageService {
         });
         break;
       case entities.films:
-        if (!(await this.filmRepository.exist({ where: { id: id } })))
+        if (!(await this.filmRepository.exists({ where: { id: id } })))
           throw new EntityNotFoundException('Film');
         newImage = this.imageRepository.create({
           id: maxImageId,
@@ -89,7 +89,7 @@ export class ImageService {
         });
         break;
       case entities.species:
-        if (!(await this.speciesRepository.exist({ where: { id: id } })))
+        if (!(await this.speciesRepository.exists({ where: { id: id } })))
           throw new EntityNotFoundException('Species');
         newImage = this.imageRepository.create({
           id: maxImageId,
@@ -102,7 +102,7 @@ export class ImageService {
         });
         break;
       case entities.starships:
-        if (!(await this.starshipRepository.exist({ where: { id: id } })))
+        if (!(await this.starshipRepository.exists({ where: { id: id } })))
           throw new EntityNotFoundException('Starship');
         newImage = this.imageRepository.create({
           id: maxImageId,
@@ -115,7 +115,7 @@ export class ImageService {
         });
         break;
       case entities.vehicles:
-        if (!(await this.vehicleRepository.exist({ where: { id: id } })))
+        if (!(await this.vehicleRepository.exists({ where: { id: id } })))
           throw new EntityNotFoundException('Vehicle');
         newImage = this.imageRepository.create({
           id: maxImageId,

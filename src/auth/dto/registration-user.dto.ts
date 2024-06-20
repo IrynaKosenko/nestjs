@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString, IsEnum, Validate, MinLength } from 'class-validat
 import { Role } from '../../common/constants';
 import { EmailExistsValidation } from '../../common/custom-validation/email-exist.validation';
 import { ValidEmailValidation } from '../../common/custom-validation/email-valid.validation';
-import { isPasswordMatchingValidation } from '../../common/custom-validation/password-matcing';
+import { PasswordMatchingValidation } from '../../common/custom-validation/password-matcing';
 
 export class RegistrationUserDto {
   @IsNotEmpty()
@@ -27,7 +27,7 @@ export class RegistrationUserDto {
   @IsNotEmpty()
   @ApiProperty({example:'examplePassword'})
   @MinLength(8)
-  @Validate(isPasswordMatchingValidation)
+  @Validate(PasswordMatchingValidation)
   passwordRepeated: string;
 
   @IsEnum(Role)

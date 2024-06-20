@@ -28,7 +28,11 @@ export class AuthService {
         `A user with ${JSON.stringify(userData)} cannot be registered.`,
       );
     const { password, ...resultUser } = user;
-    return resultUser;
+    const payload: Payload = { sub: userData.email, role: restUser.role };
+
+    return {
+      resultUser,
+      access_token: this.jwtService.sign(payload)};
   }
 
   async validateUser(email: string, pass: string): Promise<User> {

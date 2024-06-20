@@ -45,6 +45,6 @@ export class Person extends AbstractEntity<Person> {
   @JoinTable({ name: 'person_starship' })
   starships: Starship[];
 
-  @OneToMany(() => Image, (image) => image.starship)
+  @OneToMany(() => Image, (image) => image.person)
   images: Image[];
 }

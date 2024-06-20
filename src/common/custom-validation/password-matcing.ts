@@ -9,7 +9,7 @@ import { PasswordNotMatchException } from '../../exceptions/PasswordsNotMatch.ex
 
 @ValidatorConstraint({ name: 'passwordRepeated', async: true })
 @Injectable()
-export class isPasswordMatchingValidation implements ValidatorConstraintInterface {
+export class PasswordMatchingValidation implements ValidatorConstraintInterface {
   async validate(passwordRepeated: string, args: ValidationArguments): Promise<boolean> {
     const object = args.object as RegistrationUserDto;
     if (object.password !== passwordRepeated) {
