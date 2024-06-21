@@ -1,4 +1,4 @@
-import { IsUUID } from 'class-validator';
+import { IsEmail, IsUUID } from 'class-validator';
 import { Role } from '../../common/constants';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -12,6 +12,7 @@ export class User {
   username: string;
 
   @Column({ unique: true })
+  @IsEmail()
   email: string;
 
   @Column()

@@ -17,7 +17,7 @@ export class AuthService {
     private jwtService: JwtService,
     @InjectRepository(User)
     private readonly usersRepository: Repository<User>,
-  ) {}
+  ) { }
 
   public async registerUser(userData: RegistrationUserDto) {
     const { passwordRepeated, ...restUser } = userData;
@@ -32,7 +32,8 @@ export class AuthService {
 
     return {
       resultUser,
-      access_token: this.jwtService.sign(payload)};
+      access_token: this.jwtService.sign(payload)
+    };
   }
 
   async validateUser(email: string, pass: string): Promise<User> {

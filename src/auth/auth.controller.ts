@@ -14,13 +14,14 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @UseGuards(LocalAuthGuard)
+  @UseInterceptors(EntityInterceptors)
   @Post('login')
   async login(@Body() validationUserDto: ValidationUserDto) {
     return await this.authService.login(validationUserDto);
   }
 
-  @Post('register')
   @UseInterceptors(EntityInterceptors)
+  @Post('register')
   async register(@Body() registrationUserDto: RegistrationUserDto) {
     return this.authService.registerUser(registrationUserDto);
   }
