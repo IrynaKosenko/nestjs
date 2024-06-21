@@ -25,33 +25,28 @@
 ## Description
 
 An application that allows you to view, create, modify and delete any entity from the "Starwars" movies.
-----------------------------------------------------------------------------------------------
-## Launch app without docker
 
-## Preparation
-Create .env file or link - https://drive.google.com/file/d/1EvTMCmUflSlXW22CRJXoPBJhzB1GGi1Q/view?usp=sharing
+# Launch app on localhost without docker 
 
-## In your local database needs to create databases manually and change MySQL username and password for your local database in the .env file:
+1. Create .env file or link - https://drive.google.com/file/d/1EvTMCmUflSlXW22CRJXoPBJhzB1GGi1Q/view?usp=sharing
+
+2. In your local database needs to create databases manually and change MySQL username and password for your local database in the .env file:
 create database starwars;   
 create database testdb;
 
-## Installation
-$ npm install
+3. $ npm install
 
-## Run migrations
-$ npm run migration:run 
+4. $ npm run migration:run 
 
 Two files located in the "database/migration" will be run: one to create the tables, the other to populate the tables with data from swapi.
 
-## Run app
-
-$ npm run start:dev
+5. $ npm run start:dev
 
  Follow the link <http://localhost:3001/api> in browser.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Run app with mysql database in container:
+## Run app on localhost and database in docker container:
 
 1. RUN - git clone https://github.com/IrynaKosenko/nestjs.git
 2. RUN - npm install
@@ -83,7 +78,7 @@ phpAdmin for test database management on http://localhost:8082
 
 -----------------------------------------------------------------------------------
 
-# Run application and databases in docker containers:
+## Run application and database in docker containers:
 
 1. Download and add to the project .env file - https://drive.google.com/file/d/1mlWCJFjk1PTnTeTwZa4YmJIRIzWIL-zl/view?usp=sharing
 2. Download 'docker-compose.image.yml' file from Github repository: <https://github.com/IrynaKosenko/nestjs>
