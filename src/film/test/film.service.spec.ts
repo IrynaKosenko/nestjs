@@ -1,4 +1,4 @@
-import { Test, TestingModuleBuilder } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 import { Film } from '../entities/film.entity';
 import { FilmService } from '../film.service';
 import { Repository } from 'typeorm';
@@ -116,7 +116,7 @@ describe('FilmService', () => {
 
   describe('UPDATE', () => {
     let updatedFilm: Film;
-    let updatedFilmDto = filmStubUpdateDto();
+    const updatedFilmDto = filmStubUpdateDto();
 
     beforeEach(async () => {
       updatedFilm = await filmService.update(1, filmStubUpdateDto());

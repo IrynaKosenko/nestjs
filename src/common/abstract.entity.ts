@@ -16,7 +16,7 @@ export class AbstractEntity<T> {
 
   @Column()
   @Exclude()
-  url: String;
+  url: string;
 
   constructor(entity: Partial<T>) {
     Object.assign(this, entity);

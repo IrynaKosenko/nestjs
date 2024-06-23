@@ -30,7 +30,7 @@ describe('ImageController', () => {
   });
 
   describe('UPLOAD', () => {
-    let buffer = Buffer.from('hello world', 'utf8');
+    const buffer = Buffer.from('hello world', 'utf8');
 
     it('should call uploadImage() method imageService', async () => {
       await imageService.uploadImage('name', buffer, 'entity', 1);

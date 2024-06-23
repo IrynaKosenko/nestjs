@@ -36,12 +36,7 @@ describe('ImageService', () => {
   });
 
   describe('UPLOAD', () => {
-    let buffer = Buffer.from('hello world', 'utf8');
-    let img: Image;
-
-    beforeEach(async () => {
-      img = await imageService.uploadImage('name', buffer, 'entity', 1);
-    });
+    const buffer = Buffer.from('hello world', 'utf8');
 
     it('should call uploadImage() method imageService', async () => {
       expect(imageService.uploadImage).toHaveBeenCalled();

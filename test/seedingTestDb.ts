@@ -18,7 +18,7 @@ const entities = {
 };
 
 export const fetchAndFillTablesTestDatabase = async () => {
-  for (let entity in entities) {
+  for (const entity in entities) {
     let url = `https://swapi.dev/api/${entity}`;
 
     while (url !== null) {
@@ -84,10 +84,10 @@ async function setRelations(dataArray: [], entity: string) {
     dataArray.forEach(async (person: any) => {
       person.id = getIdFromUrl(person.url);
 
-      let filmsIds = getAllIdsFromEntity(person.films);
-      let speciesIds = getAllIdsFromEntity(person.species);
-      let vehiclesIds = getAllIdsFromEntity(person.vehicles);
-      let starshipsIds = getAllIdsFromEntity(person.starships);
+      const filmsIds = getAllIdsFromEntity(person.films);
+      const speciesIds = getAllIdsFromEntity(person.species);
+      const vehiclesIds = getAllIdsFromEntity(person.vehicles);
+      const starshipsIds = getAllIdsFromEntity(person.starships);
 
       Promise.all([
         insertRelationsToDatabase(filmsIds, person.id, entity, nameJoinedTables.person_film),
@@ -105,10 +105,10 @@ async function setRelations(dataArray: [], entity: string) {
     dataArray.forEach(async (film: any) => {
       film.id = getIdFromUrl(film.url);
 
-      let planetsIds = getAllIdsFromEntity(film.planets);
-      let speciesIds = getAllIdsFromEntity(film.species);
-      let vehiclesIds = getAllIdsFromEntity(film.vehicles);
-      let starshipsIds = getAllIdsFromEntity(film.starships);
+      const planetsIds = getAllIdsFromEntity(film.planets);
+      const speciesIds = getAllIdsFromEntity(film.species);
+      const vehiclesIds = getAllIdsFromEntity(film.vehicles);
+      const starshipsIds = getAllIdsFromEntity(film.starships);
 
       Promise.all([
         insertRelationsToDatabase(planetsIds, film.id, entity, nameJoinedTables.film_planet),

@@ -1,5 +1,3 @@
-import { Image } from '../entities/image.entity';
-
 export const mockImageService = {
   uploadImage: jest.fn((x) => x),
   deleteAllImagesForEntity: jest.fn((x) => x),

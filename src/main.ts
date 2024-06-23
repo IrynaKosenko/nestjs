@@ -3,7 +3,7 @@ import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import 'reflect-metadata';
-import { BadRequestException, ValidationError, ValidationPipe } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import { AllExceptionsFilter } from './filters/Exception.filter';
 import { useContainer } from 'class-validator';
 import { fetchAndFillTablesTestDatabase } from 'test/seedingTestDb';
@@ -27,11 +27,10 @@ async function bootstrap() {
 
   // for using in-build pipes globally
   app.useGlobalPipes(
-    new ValidationPipe(
-      {
-        transform: true,
-        stopAtFirstError: true
-      }),
+    new ValidationPipe({
+      transform: true,
+      stopAtFirstError: true,
+    }),
   );
 
   //for using .env variables

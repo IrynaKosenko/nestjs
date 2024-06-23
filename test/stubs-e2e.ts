@@ -1,7 +1,6 @@
 import { RegistrationUserDto } from 'src/auth/dto/registration-user.dto';
 import { Role } from 'src/common/constants';
 import { CreatePlanetDto } from 'src/planet/dto/create-planet.dto';
-import { UpdatePlanetDto } from 'src/planet/dto/update-planet.dto';
 import { Planet } from 'src/planet/entities/planet.entity';
 
 export const planetsStubArrayDefaultOpt = (): Planet[] => {

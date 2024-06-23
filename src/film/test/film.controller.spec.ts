@@ -62,7 +62,6 @@ describe('FilmController', () => {
     beforeEach(async () => {
       film = await filmController.create(dto);
     });
-   
 
     it('should call create() method filmService', () => {
       expect(filmService.create).toBeCalledWith(dto);
@@ -84,12 +83,7 @@ describe('FilmController', () => {
   });
 
   describe('UPDATE', () => {
-    let film: Film;
     const dto: UpdateFilmDto = filmStubUpdateDto();
-
-    beforeEach(async () => {
-      film = await filmController.update(filmStub().id, dto);
-    });
 
     it('should call update() method filmService', () => {
       expect(filmService.update).toBeCalledWith(filmStub().id, dto);

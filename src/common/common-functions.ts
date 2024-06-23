@@ -20,7 +20,7 @@ export async function createNewFileName<T extends ObjectLiteral>(
   id: number,
   repo: Repository<T>,
 ): Promise<string> {
-  const ext = fileName.split('.')[1];                // needs to check if file name contains two or more dots 
+  const ext = fileName.split('.')[1]; // needs to check if file name contains two or more dots
   const maxImageId = (await getMaxId(entities.images, repo)) + 1;
   return maxImageId ? `${entity}_${id}_${maxImageId}.${ext}` : `${entity}_${id}_1.${ext}`;
 }

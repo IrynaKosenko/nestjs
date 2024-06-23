@@ -103,38 +103,38 @@ export class FilmService {
 
     Object.assign(film, dataFilm);
 
-    if (updateFilmDto.characters) {
+    if (characters) {
       film.characters = await this.peopleRepository.find({
         where: {
-          id: In(updateFilmDto.characters),
+          id: In(characters),
         },
       });
     }
-    if (updateFilmDto.planets) {
+    if (planets) {
       film.planets = await this.planetRepository.find({
         where: {
-          id: In(updateFilmDto.planets),
+          id: In(planets),
         },
       });
     }
-    if (updateFilmDto.species) {
+    if (species) {
       film.species = await this.speciesRepository.find({
         where: {
-          id: In(updateFilmDto.species),
+          id: In(species),
         },
       });
     }
-    if (updateFilmDto.vehicles) {
+    if (vehicles) {
       film.vehicles = await this.vehicleRepository.find({
         where: {
-          id: In(updateFilmDto.vehicles),
+          id: In(vehicles),
         },
       });
     }
-    if (updateFilmDto.starships) {
+    if (starships) {
       film.starships = await this.starshipRepository.find({
         where: {
-          id: In(updateFilmDto.starships),
+          id: In(starships),
         },
       });
     }

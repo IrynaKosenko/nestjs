@@ -10,25 +10,25 @@ export class RegistrationUserDto {
   @IsString()
   @MinLength(3)
   @MaxLength(10)
-  @ApiProperty({example:'exampleName'})
+  @ApiProperty({ example: 'exampleName' })
   username: string;
 
   @IsNotEmpty()
   @Validate(ValidEmailValidation)
   @Validate(EmailExistsValidation)
-  @ApiProperty({example:'exampleName@mail.com'})
+  @ApiProperty({ example: 'exampleName@mail.com' })
   email: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(8)
   @MaxLength(20)
-  @ApiProperty({example:'examplePassword'})
+  @ApiProperty({ example: 'examplePassword' })
   password: string;
 
   @IsString()
   @IsNotEmpty()
-  @ApiProperty({example:'examplePassword'})
+  @ApiProperty({ example: 'examplePassword' })
   @MinLength(8)
   @MaxLength(20)
   @Validate(PasswordMatchingValidation)
