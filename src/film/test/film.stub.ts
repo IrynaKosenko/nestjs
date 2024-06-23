@@ -17,14 +17,14 @@ export const filmStub = (): Film => {
     vehicles: [],
     species: [],
     images: [],
-    created: new Date('2023'),
-    edited: new Date('2023'),
+    created: new Date('2024'),
+    edited: new Date('2024'),
     url: 'example',
   };
 };
 export const filmStubCreateDto = (): CreateFilmDto => {
   return {
-    title: 'Created Example Film',
+    title: 'Example',
     episode_id: 'Example',
     opening_crawl: 'Example',
     director: 'Example',
@@ -40,7 +40,7 @@ export const filmStubCreateDto = (): CreateFilmDto => {
 export const createdFilmStub = (): Film => {
   return {
     id: 1,
-    title: 'Created Example Film',
+    title: 'Example',
     episode_id: 'Example',
     opening_crawl: 'Example',
     director: 'Example',
@@ -52,8 +52,8 @@ export const createdFilmStub = (): Film => {
     vehicles: [],
     species: [],
     images: [],
-    created: new Date('2023'),
-    edited: new Date('2023'),
+    created: new Date('2024'),
+    edited: new Date('2024'),
     url: 'example',
   };
 };

@@ -23,7 +23,7 @@ async function bootstrap() {
 
   // for using filters globally
   const httpAdapter = app.get(HttpAdapterHost);
-  //app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
+  app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
 
   // for using in-build pipes globally
   app.useGlobalPipes(

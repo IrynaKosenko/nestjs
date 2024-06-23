@@ -10,7 +10,7 @@ import { createUrlWithId, getMaxId } from '../common/common-functions';
 import { IPaginationOptions, Pagination, paginate } from 'nestjs-typeorm-paginate';
 import { EntityNotFoundException } from '../exceptions/NotFound.exception';
 import { entities } from '../common/constants';
-import { Species } from 'src/species/entities/species.entity';
+import { Species } from '../species/entities/species.entity';
 
 @Injectable()
 export class PlanetService {
